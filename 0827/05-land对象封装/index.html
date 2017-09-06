@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            display: block;
+            margin:0 auto;
+        }
+    </style>
+
+</head>
+<body>
+<canvas width="800" height="400" style="border: 1px solid #000;"></canvas>
+<script src="Land.js"></script>
+<script>
+    var cs=document.querySelector('canvas');
+    var ctx=cs.getContext('2d');
+
+    var img=new Image();
+
+    img.onload=function(){
+        //主逻辑
+        var land1=new Land({
+            ctx:ctx,
+            img:img,
+            index:0
+        });
+
+        var land2=new Land({
+            ctx:ctx,
+            img:img,
+            index:1
+        });
+
+        var land3=new Land({
+            ctx:ctx,
+            img:img,
+            index:2
+        });
+
+        var land4=new Land({
+            ctx:ctx,
+            img:img,
+            index:3
+        });
+
+        setInterval(function(){
+            ctx.clearRect(0,0,cs.width,cs.height);//清空画布
+/            land1.render();
+            land2.render();
+            land3.render();
+            land4.render();
+        },50);
+    }
+
+    img.src='../imgs/land.png';
+
+</script>
+</body>
+</html>
